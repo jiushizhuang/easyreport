@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>使用sphinx记笔记 &mdash; easyreport 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="easyreport 1.0 documentation" href="#"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> easyreport
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">使用sphinx记笔记</a><ul>
+<li><a class="reference internal" href="#id1">sphinx简介</a></li>
+<li><a class="reference internal" href="#id2">安装</a></li>
+<li><a class="reference internal" href="#id5">建立sphinx工程</a></li>
+<li><a class="reference internal" href="#conf-py">配置（conf.py）</a></li>
+<li><a class="reference internal" href="#id7">常用的文档格式符号</a><ul>
+<li><a class="reference internal" href="#id8">标题</a></li>
+<li><a class="reference internal" href="#id9">列表</a></li>
+<li><a class="reference internal" href="#id10">超链接</a></li>
+<li><a class="reference internal" href="#id11">代码</a></li>
+<li><a class="reference internal" href="#id12">文本</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">其他</a></li>
+<li><a class="reference internal" href="#id14">参考教程</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">easyreport</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>使用sphinx记笔记</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sphinx">
+<h1>使用sphinx记笔记<a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>sphinx简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>简单来说，这是一个基于ReStructuredText的文档生成工具。方便易用，功能强大。</p>
+<p>有很多开源工程都采用sphinx作为文档生成系统，最有名的就是 <a class="reference external" href="http://docs.python.org/">python官方文档</a> 。
+在 <a class="reference external" href="http://sphinx.pocoo.org/">sphinx官方网站</a> 上也列出使用sphinx的项目，有将近90个左右，其中不乏大名鼎鼎的开源项目。</p>
+<p>一些中文的翻译项目也采用了sphinx，如 <a class="reference external" href="http://code.google.com/p/pymotwcn/">pymotwcn</a> 。</p>
+</div>
+<div class="section" id="id2">
+<h2>安装<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>安装python</dt>
+<dd><ul class="first last simple">
+<li>python2.5或者python2.6都可以。</li>
+<li>如果是windows平台，推荐下载 <a class="reference external" href="http://www.activestate.com/activepython/downloads/">ActivePython</a></li>
+<li>其他平台可以直接下载 <a class="reference external" href="http://www.python.org/download/">python官方版本</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>要确认已经安装了setuptools</dt>
+<dd><ul class="first last simple">
+<li>如果已经安装，你在python安装路径下的Scripts文件夹下会找到一个easy_install.exe。</li>
+<li><a class="reference external" href="http://pypi.python.org/pypi/setuptools#downloads">setuptools下载</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>在命令行输入easy_install sphinx</dt>
+<dd><ul class="first last simple">
+<li>easy_install可以自动下载并安装sphinx以及它所依赖的其他模块。</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>建立sphinx工程<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>建议使用sphinx自带的配置工具sphinx-quickstart。
+- 建立一个工程目录，比如D:Note。
+- 在该目录启动命令行，输入sphinx-quickstart</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">:</span>\<span class="n">Note</span><span class="o">&gt;</span><span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">程序会提示输入一些选项，如输入根目录</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Welcome to the Sphinx quickstart utility.
+
+Please enter values for the following settings (just press Enter to
+accept a default value, if one is given in brackets).
+
+Enter the root path for documentation.
+&gt; Root path for the documentation [.]:
+
+大部分使用默认选项，直接按回车即可。
+</pre></div>
+</div>
+</li>
+<li><dl class="first docutils">
+<dt>需要指定的选项</dt>
+<dd><ol class="first last arabic">
+<li><p class="first">分离source和build目录，方便管理</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">Separate</span> <span class="n">source</span> <span class="ow">and</span> <span class="n">build</span> <span class="n">directories</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="p">[</span><span class="n">n</span><span class="p">]:</span> <span class="n">y</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">指定工程名、作者名、版本号</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">project</span> <span class="n">name</span> <span class="n">will</span> <span class="n">occur</span> <span class="ow">in</span> <span class="n">several</span> <span class="n">places</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">built</span> <span class="n">documentation</span><span class="o">.</span>
+<span class="o">&gt;</span> <span class="n">Project</span> <span class="n">name</span><span class="p">:</span> <span class="n">Note</span>
+<span class="o">&gt;</span> <span class="n">Author</span> <span class="n">name</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="n">LK</span>
+
+<span class="n">Sphinx</span> <span class="n">has</span> <span class="n">the</span> <span class="n">notion</span> <span class="n">of</span> <span class="n">a</span> <span class="s2">&quot;version&quot;</span> <span class="ow">and</span> <span class="n">a</span> <span class="s2">&quot;release&quot;</span> <span class="k">for</span> <span class="n">the</span>
+<span class="n">software</span><span class="o">.</span> <span class="n">Each</span> <span class="n">version</span> <span class="n">can</span> <span class="n">have</span> <span class="n">multiple</span> <span class="n">releases</span><span class="o">.</span> <span class="n">For</span> <span class="n">example</span><span class="p">,</span> <span class="k">for</span>
+<span class="n">Python</span> <span class="n">the</span> <span class="n">version</span> <span class="ow">is</span> <span class="n">something</span> <span class="n">like</span> <span class="mf">2.5</span> <span class="ow">or</span> <span class="mf">3.0</span><span class="p">,</span> <span class="k">while</span> <span class="n">the</span> <span class="n">release</span> <span class="ow">is</span>
+<span class="n">something</span> <span class="n">like</span> <span class="mf">2.5</span><span class="o">.</span><span class="mi">1</span> <span class="ow">or</span> <span class="mf">3.0</span><span class="n">a1</span><span class="o">.</span>  <span class="n">If</span> <span class="n">you</span> <span class="n">don</span><span class="s1">&#39;t need this dual structure,</span>
+<span class="n">just</span> <span class="nb">set</span> <span class="n">both</span> <span class="n">to</span> <span class="n">the</span> <span class="n">same</span> <span class="n">value</span><span class="o">.</span>
+<span class="o">&gt;</span> <span class="n">Project</span> <span class="n">version</span><span class="p">:</span> <span class="mf">0.1</span>
+<span class="o">&gt;</span> <span class="n">Project</span> <span class="n">release</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">]:</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">文档文件的后缀名，默认是.rst，个人认为用.txt更方便些。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">file</span> <span class="n">name</span> <span class="n">suffix</span> <span class="k">for</span> <span class="n">source</span> <span class="n">files</span><span class="o">.</span> <span class="n">Commonly</span><span class="p">,</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">either</span> <span class="s2">&quot;.txt&quot;</span>
+<span class="ow">or</span> <span class="s2">&quot;.rst&quot;</span><span class="o">.</span>  <span class="n">Only</span> <span class="n">files</span> <span class="k">with</span> <span class="n">this</span> <span class="n">suffix</span> <span class="n">are</span> <span class="n">considered</span> <span class="n">documents</span><span class="o">.</span>
+<span class="o">&gt;</span> <span class="n">Source</span> <span class="n">file</span> <span class="n">suffix</span> <span class="p">[</span><span class="o">.</span><span class="n">rst</span><span class="p">]:</span> <span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>完成后，可以看到Note目录下有以下目录和文件</dt>
+<dd><ul class="first last simple">
+<li>build目录 运行make命令后，生成的文件都在这个目录里面</li>
+<li>source目录 放置文档的源文件</li>
+<li>make.bat 批处理命令</li>
+<li>makefile</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">基本完成了，使用make html命令就可以生成html形式的文档了。</p>
+</li>
+</ul>
+</div>
+<div class="section" id="conf-py">
+<h2>配置（conf.py）<a class="headerlink" href="#conf-py" title="Permalink to this headline">¶</a></h2>
+<p>conf.py文件包含了sphinx工程的所有配置选项，包括一些无法在sphinx-quickstart中进行设置的。</p>
+<dl class="docutils">
+<dt>分为三部分：</dt>
+<dd><ul class="first last simple">
+<li>General configuration（一般选项）</li>
+<li>Options for HTML output（HTML输出选项）</li>
+<li>Options for LaTeX output（Latex输出选项）</li>
+</ul>
+</dd>
+</dl>
+<p>下面是一些常用的选项：</p>
+<ul>
+<li><dl class="first docutils">
+<dt>language （语言）</dt>
+<dd><p class="first">对应于sphinx的locale目录下的文件夹，里面是本地化配置。</p>
+<p>官方版本只支持繁体中文（zh_TW）,可以下载 <a class="reference external" href="http://www.javaeye.com/wiki/topic/299363">sphinx简体中文包</a> （javaEye topman制作）</p>
+<p class="last">下载后放到locale目录下，然后language选项修改为zh_CN即可</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">html_theme （输出html的主题）:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># The theme to use for HTML and HTML Help pages.  Major themes that come with</span>
+<span class="c1"># Sphinx are currently &#39;default&#39; and &#39;sphinxdoc&#39;.</span>
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinxdoc&#39;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>常用的文档格式符号<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>下面只是列出了一些常用的格式符号，以供大家参考，详细的教程可以参照《reStructuredText 简明教程》
+（以下基本上是从该教程直接引用过来的）。</p>
+<div class="section" id="id8">
+<h3>标题<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>ReStructuredText会根据下划线读取文档的标题，并且可以自动组织索引</p>
+<blockquote>
+<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">=====================</span>
+<span class="n">文档标题</span>
+<span class="o">=====================</span>
+
+<span class="o">--------</span>
+<span class="n">子标题</span>
+<span class="o">--------</span>
+
+<span class="n">章节标题</span>
+<span class="o">========</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id9">
+<h3>列表<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>列表中，相同的层级使用相同的缩进。</p>
+<p>列表中同一层级不需要空行分隔。不同层级起始处必须有空行。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>列表：
+  - 条目
+  - 条目
+
+      - 条目
+      - 条目
+  - 条目
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>超链接<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><strong>独立链接</strong> ，自动将网址转换为链接。</p>
+<p>例如 <a class="reference external" href="http://www.ubuntu.org.cn/">http://www.ubuntu.org.cn/</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">org</span><span class="o">.</span><span class="n">cn</span><span class="o">/</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>命名链接</strong> ，为链接命名，有助记忆和减少空间占用。</p>
+<p>在正文中使用 <code class="docutils literal"><span class="pre">&lt;链接名&gt;_</span></code> ，注释中使用 <code class="docutils literal"><span class="pre">_&lt;链接名&gt;:</span> <span class="pre">[链接目标]</span></code></p>
+<p>例如 <a class="reference external" href="http://www.ubuntu.org.cn/">Ubuntu</a></p>
+</div></blockquote>
+<blockquote>
+<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Ubuntu_</span>
+
+<span class="o">..</span> <span class="n">_Ubuntu</span><span class="p">:</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">org</span><span class="o">.</span><span class="n">cn</span><span class="o">/</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id11">
+<h3>代码<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>sphinx对嵌入程序代码的支持很好（本来就是为了编写python文档而开发的工具）。</p>
+<p>在段落的结尾添加符号 <code class="docutils literal"><span class="pre">::</span></code> ，则表明下面的段落为代码段落。代码段落相对之前的段落要缩进一次。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>普通文本段落，下一段是代码段落::
+
+    缩进结束前
+        代码段落不会被处理
+
+ 普通文本段落
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>文本<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>只要没有空行，不管换多少次行，都会处理为一行。
+建议您将每行的内容控制在50个汉字或者100个字母之内，
+尽量在标点符号处手动换行，以增加源文件的可读性。</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>其他<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>暂时没有发现支持ReStructuredText的Blog，不知道大家有没有知道的。如果能直接用ReStructuredText写Blog就太好了。</p>
+</div>
+<div class="section" id="id14">
+<h2>参考教程<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">A ReStructuredText Primer</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, jiushizhuang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
